@@ -10,7 +10,7 @@ client.once('ready', async () => {
 
   const embed = new EmbedBuilder()
     .setColor(0xFFD700)
-    .setTitle('🍯🐝 Schematic Selection Menu')
+    .setTitle('📂 Schematic Selection Menu')
     .setDescription('Choose the schematic you want:');
 
   const menu = new ActionRowBuilder().addComponents(
