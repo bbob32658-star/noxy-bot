@@ -34,7 +34,7 @@ client.on('interactionCreate', async (interaction) => {
 
   try {
     if (selected === 'gambling_station') {
-      const file = new AttachmentBuilder('./Yellow_Gamble-Stations.litematic');
+      const file = new AttachmentBuilder('./Yellow Gamble-Stations.litematic');
       await interaction.user.send({
         content: '🍯🐝 Here is your **Gambling Station / Pearl Station** schematic!',
         files: [file]
