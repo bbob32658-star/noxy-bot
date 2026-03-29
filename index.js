@@ -10,7 +10,7 @@ client.once('ready', async () => {
 
   const embed = new EmbedBuilder()
     .setColor(0xFFD700)
-    .setTitle('📂 Schematic Selection Menu')
+    .setTitle('🗂️ Schematic Selection Menu')
     .setDescription('Choose the schematic you want:');
 
   const menu = new ActionRowBuilder().addComponents(
@@ -18,7 +18,8 @@ client.once('ready', async () => {
       .setCustomId('schematic_select')
       .setPlaceholder('Choose a schematic...')
       .addOptions([
-        { label: '🍯🐝 Gambling Station / Pearl Station', value: 'gambling_station' },
+        { label: '🍯🐝 Yellow Gambling Station / Pearl Station', value: 'yellow_station' },
+        { label: '🌸🌺 Cherry Blossom Gambling Station / Pearl Station', value: 'cherry_station' },
       ])
   );
 
@@ -33,23 +34,23 @@ client.on('interactionCreate', async (interaction) => {
   const selected = interaction.values[0];
 
   try {
-    if (selected === 'gambling_station') {
+    if (selected === 'yellow_station') {
       const file = new AttachmentBuilder('./Yellow Gamble-Stations.litematic');
       await interaction.user.send({
-        content: '🍯🐝 Here is your **Gambling Station / Pearl Station** schematic!',
+        content: '🍯🐝 Here is your **Yellow Gambling Station / Pearl Station** schematic!',
+        files: [file]
+      });
+    } else if (selected === 'cherry_station') {
+      const file = new AttachmentBuilder('./Chery.litematic');
+      await interaction.user.send({
+        content: '🌸🌺 Here is your **Cherry Blossom Gambling Station / Pearl Station** schematic!',
         files: [file]
       });
     }
 
-    await interaction.reply({ 
-      content: '✅ Schematic sent to your DMs!', 
-      ephemeral: true 
-    });
+    await interaction.reply({ content: '✅ Schematic sent to your DMs!', ephemeral: true });
   } catch {
-    await interaction.reply({ 
-      content: '❌ I couldn\'t DM you! Please enable DMs from server members.', 
-      ephemeral: true 
-    });
+    await interaction.reply({ content: '❌ I couldn\'t DM you! Please enable DMs from server members.', ephemeral: true });
   }
 });
 
